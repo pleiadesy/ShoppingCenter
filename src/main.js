@@ -9,9 +9,10 @@ import './styles/common.scss'
 
 const app = createApp(App)
 const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
 
 app.use(pinia)
 app.use(router)
+
+pinia.use(piniaPluginPersistedstate)
 
 app.mount('#app')
