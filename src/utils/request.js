@@ -1,4 +1,7 @@
 import axios from 'axios'
+import { useUserStore } from '@/stores/user';
+const userStore = useUserStore()
+
 const request = axios.create({
   baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
   timeout: 5000
@@ -7,6 +10,11 @@ const request = axios.create({
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
+    // 从userStore中获取token
+    const token = userStore.userInfo.token
+    if(token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
     return config;
   }, function (error) {
     // 对请求错误做些什么
