@@ -4,7 +4,6 @@ import LayoutHeader from './components/LayoutHeader.vue'
 import LayoutFooter from './components/LayoutFooter.vue'
 import CeilNav from './components/CeilNav.vue'
 
-import Home from '@/views/Home/index.vue'
 
 </script>
 
@@ -12,7 +11,7 @@ import Home from '@/views/Home/index.vue'
 <LayoutHeader></LayoutHeader>
 <CeilNav></CeilNav>
 <LayoutNav></LayoutNav>
-<Home></Home>
+<RouterView></RouterView>
 <LayoutFooter></LayoutFooter>
 </template>
 

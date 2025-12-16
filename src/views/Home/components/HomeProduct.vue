@@ -8,7 +8,6 @@ import HomePanel from './HomePanel.vue'
 const productList = ref([])
 const getProductList = async () => {
   const res = await getProductApi()
-  console.log(res)
   productList.value = res.data.result
 }
 getProductList()

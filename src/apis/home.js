@@ -1,8 +1,15 @@
 import request from '@/utils/request'
 
 // 获取轮播图数据
-export const getBannerApi = () => {
-  return request.get('/home/banner')
+export const getBannerApi = (params = {} ) => {
+  const { distributionSite } = params  // 1为首页轮播图数据， 2为分类商品页  默认1
+  return request({
+    url: '/home/banner',
+    method: 'get',
+    params: {
+      distributionSite
+    }
+  })
 }
 
 // 获取新鲜好物数据
