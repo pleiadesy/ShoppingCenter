@@ -1,19 +1,38 @@
 <script setup>
+import { useUserStore } from '@/stores/user'
+import { ElMessage, ElMessageBox } from 'element-plus';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
+const userStore = useUserStore()
+// 退出登录
+const logOut = () => {
+  ElMessageBox.confirm(
+    '确认要退出登录吗',
+    '提示',
+    {
+      confirmButtonText: '确认',
+      cancelButtonText: '取消',
+      type: 'info'
+    }
+  ).then(()=> {
+    ElMessage.success('已退出登录')
+    userStore.clearUserInfo()
+    router.push('/login')
+  })
+}
 </script>
 
 <template>
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="true">
-          <li><a href="javascript:;"><i class="iconfont icon-user"></i>周杰伦</a></li>
+        <template v-if="userStore.userInfo.name">
+          <li><a href="javascript:;"><i class="iconfont icon-user"></i>{{userStore.userInfo.name}}</a></li>
           <li>
-            <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
-              <template #reference>
-                <a href="javascript:;">退出登录</a>
-              </template>
-            </el-popconfirm>
+
+                <a href="javascript:;" @click="logOut">退出登录</a>
+
           </li>
           <li><a href="javascript:;">我的订单</a></li>
           <li><a href="javascript:;">会员中心</a></li>

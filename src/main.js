@@ -7,6 +7,8 @@ import router from './router'
 
 import './styles/common.scss'
 
+import { componentPlugin } from '@/components/index'
+
 // 引入懒加载指令
 import { imgLazyLoad } from '@/directives/imgLazyLoad'
 
@@ -16,6 +18,7 @@ const pinia = createPinia()
 app.use(pinia)
 app.use(router)
 app.use(imgLazyLoad)
+app.use(componentPlugin)
 
 pinia.use(piniaPluginPersistedstate)
 
