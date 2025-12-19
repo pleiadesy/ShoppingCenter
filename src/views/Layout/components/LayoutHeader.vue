@@ -27,7 +27,7 @@ const logOut = () => {
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="userStore.userInfo.name">
+        <template v-if="userStore.userInfo">
           <li><a href="javascript:;"><i class="iconfont icon-user"></i>{{userStore.userInfo.name}}</a></li>
           <li>
 

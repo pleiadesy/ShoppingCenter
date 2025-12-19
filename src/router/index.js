@@ -6,6 +6,7 @@ import Home from '@/views/Home/index.vue'
 import Category from '@/views/Category/index.vue'
 import SubCategory from '@/views/SubCategory/index.vue'
 import Details from '@/views/Details/index.vue'
+import Cart from '@/views/Cart/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +19,9 @@ const router = createRouter({
       {path:'category/:id', name: 'category', component: Category},
       {path: 'category/sub/:id', name: 'subCategiry', component: SubCategory},
       {path: 'detail/:id', name: 'details', component: Details}
-    ]}
+    ]},
+    // 购物车路由
+    {path: '/cart', name: 'cart', component: Cart}
   ],
 })
 
