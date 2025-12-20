@@ -27,3 +27,12 @@ export const delCartApi = (ids) => {
     }
   })
 }
+
+// 合并购物车
+export const mergeCartApi = (data) => {
+  return request({
+    url: '/member/cart/merge',
+    method: 'post',
+    data
+  })
+}

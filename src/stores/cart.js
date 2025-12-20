@@ -83,6 +83,7 @@ export const useCartStore = defineStore('cart', ()=> {
 
   return {
     cartList,
+    getCartList,
     addCart,
     delCart,
     singleCheck,

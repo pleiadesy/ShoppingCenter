@@ -7,6 +7,9 @@ import Category from '@/views/Category/index.vue'
 import SubCategory from '@/views/SubCategory/index.vue'
 import Details from '@/views/Details/index.vue'
 import Cart from '@/views/Cart/index.vue'
+import Order from '@/views/Order/index.vue'
+import Pay from '@/views/Pay/index.vue'
+import PayBack from '@/views/PayBack/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,10 +21,12 @@ const router = createRouter({
       {path:'', name: 'home', component: Home},
       {path:'category/:id', name: 'category', component: Category},
       {path: 'category/sub/:id', name: 'subCategiry', component: SubCategory},
-      {path: 'detail/:id', name: 'details', component: Details}
-    ]},
-    // 购物车路由
-    {path: '/cart', name: 'cart', component: Cart}
+      {path: 'detail/:id', name: 'details', component: Details},
+      {path: '/cart', name: 'cart', component: Cart},
+      {path: '/order', name: 'order', component: Order},
+      {path: '/pay', name: 'pay', component: Pay},
+      {path: '/paycallback', name: 'payback', component: PayBack}
+    ]}
   ],
 })
 
