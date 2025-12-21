@@ -10,6 +10,11 @@ import Cart from '@/views/Cart/index.vue'
 import Order from '@/views/Order/index.vue'
 import Pay from '@/views/Pay/index.vue'
 import PayBack from '@/views/PayBack/index.vue'
+import Member from '@/views/Member/index.vue'
+
+// 会员页面路由
+import MyInfo from '@/views/Member/components/MyInfo.vue'
+import MyOrder from '@/views/Member/components/MyOrder.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,10 +27,15 @@ const router = createRouter({
       {path:'category/:id', name: 'category', component: Category},
       {path: 'category/sub/:id', name: 'subCategiry', component: SubCategory},
       {path: 'detail/:id', name: 'details', component: Details},
-      {path: '/cart', name: 'cart', component: Cart},
-      {path: '/order', name: 'order', component: Order},
-      {path: '/pay', name: 'pay', component: Pay},
-      {path: '/paycallback', name: 'payback', component: PayBack}
+      {path: 'cart', name: 'cart', component: Cart},
+      {path: 'order', name: 'order', component: Order},
+      {path: 'pay', name: 'pay', component: Pay},
+      {path: 'paycallback', name: 'payback', component: PayBack}
+    ]},
+    // 会员中心路由
+    {path: '/member', name: 'member', component: Member, children: [
+      {path: '', name: 'myinfo', component: MyInfo},
+      {path: 'myorder', name: 'myorder', component: MyOrder}
     ]}
   ],
 })
